@@ -4,9 +4,9 @@ import './App.css';
 import Contact from './components/Contact';
 import Header from './components/Header';
 // import useFetch from './components/useFetch'; //for fetching one single item.
-//npm install react-bootstrap bootstrap
-//in index.js add import "bootstrap/dist/css/bootstrap.min.css";
-//npm install axios --save
+// npm install react-bootstrap bootstrap
+// in index.js add import "bootstrap/dist/css/bootstrap.min.css";
+// npm install axios --save
 
 
 function App() {
