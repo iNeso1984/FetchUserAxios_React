@@ -8,10 +8,7 @@ import Header from './components/Header';
 // in index.js add import "bootstrap/dist/css/bootstrap.min.css";
 // npm install axios --save
 
-
 function App() {
-
-
   // const {
   //   data: joke,
   //   loading: jokeLoad,
@@ -22,34 +19,31 @@ function App() {
 
   // if (error) console.log(error);
   // for Get user------------------------------------------>
-
-  useEffect(()=>{
-    getData();
-  }, [])
   const [data, setData] = useState([]);
-  const [loading, setLoading]=useState(false);
+  const [loading, setLoading] = useState(false);
 
-   const getData = async ()=>{
-
-
+   const getData = async () => {
     try{
      const res = await axios.get("https://randomuser.me/api?results=1")
      setData(res.data.results)
      setLoading(true)
-    }catch(err){
-      console.log(err.message)
+    } catch(err) {
+      console.error(err.message)
     }
    }
-  return (
    
+  useEffect(() => {
+    getData();
+  }, []);
+  
+  return (
     <>
-    
      <Header/>
       <div className="container">
         <ul>
           {loading &&
-            data.map((contact) => (
-              <li key={contact.login.uuid}>
+            data.map((contact, i) => (
+              <li key={contact?.login?.uuid ?? `contact-${i}`}>
                 <Contact contact={contact} />
               </li>
             ))}
